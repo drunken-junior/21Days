@@ -42,7 +42,6 @@ class UsersRepositoryTest {
         assertThat(user1).isEqualTo(findUser);
     }
 
-/* TODO: 전체적인 편의메서드 어떻게 작성할건지 설계 후 작성하기
 
     @DisplayName("연관관계 편의 메서드 테스트")
     @Test
@@ -64,5 +63,4 @@ class UsersRepositoryTest {
         assertThat(findHabit.getHabitHistoryList().get(0).getUsers().getName()).isEqualTo("user1");
 
     }
-*/
 }
