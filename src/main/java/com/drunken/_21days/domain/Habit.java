@@ -1,13 +1,14 @@
 package com.drunken._21days.domain;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Getter @Setter
 public class Habit extends BaseTimeEntity{
