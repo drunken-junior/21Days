@@ -11,7 +11,7 @@ import static javax.persistence.FetchType.LAZY;
 
 @Entity
 @Getter @Setter
-public class HabitHistory {
+public class HabitHistory extends BaseTimeEntity{
 
     @Id @GeneratedValue
     @Column(name = "hist_id")

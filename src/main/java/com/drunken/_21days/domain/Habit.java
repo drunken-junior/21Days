@@ -10,7 +10,7 @@ import java.util.List;
 
 @Entity
 @Getter @Setter
-public class Habit {
+public class Habit extends BaseTimeEntity{
     @Id @GeneratedValue
     @Column(name = "habit_id")
     private Long id;

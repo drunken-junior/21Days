@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Getter @Setter
-public class UserHabit {
+public class UserHabit extends BaseTimeEntity{
     @Id @GeneratedValue
     @Column(name = "user_habit_id")
     private long id;
