@@ -14,9 +14,15 @@ public class UserHabit {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    private User user;
+    private Users users;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "habit_id")
     private Habit habit;
+
+    @Enumerated(EnumType.STRING)
+    private UseYn useYn;
+
+    private long regUser;
+    private long modUser;
 }

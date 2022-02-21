@@ -19,12 +19,13 @@ public class HabitHistory {
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "user_id")
-    private User user;
+    private Users users;
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "habit_id")
     private Habit habit;
 
+    @Enumerated(EnumType.STRING)
     private HabitStatus habitStatus;
 
     private LocalDateTime historyDate;

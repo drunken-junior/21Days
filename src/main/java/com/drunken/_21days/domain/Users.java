@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Getter @Setter
-public class User extends BaseTimeEntity{
+public class Users extends BaseTimeEntity{
     @Id @GeneratedValue
     @Column(name = "user_id")
     private Long id;
@@ -23,6 +23,9 @@ public class User extends BaseTimeEntity{
     private Long regUser;
     private Long modUser;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "users")
     private List<UserHabit> userHabits = new ArrayList<>();
+
+    @OneToMany(mappedBy = "users")
+    private List<HabitHistory> habitHistories = new ArrayList<>();
 }
