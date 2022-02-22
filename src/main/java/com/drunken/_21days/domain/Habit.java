@@ -1,5 +1,7 @@
 package com.drunken._21days.domain;
 
+import com.drunken._21days.domain.enums.HabitStatus;
+import com.drunken._21days.domain.enums.UseYn;
 import lombok.*;
 
 import javax.persistence.*;

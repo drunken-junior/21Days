@@ -1,30 +1,28 @@
 package com.drunken._21days.repository;
 
 import com.drunken._21days.domain.*;
+import com.drunken._21days.domain.enums.UseYn;
 import lombok.extern.slf4j.Slf4j;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
 @DataJpaTest
-class UsersRepositoryTest {
+class UserRepositoryTest {
 
     @Autowired
     EntityManager em;
 
     @Autowired
-    UsersRepository usersRepository;
+    UserRepository userRepository;
 
     @Autowired
     HabitRepository habitRepository;
@@ -32,13 +30,13 @@ class UsersRepositoryTest {
     @DisplayName("user 생성 테스트")
     @Test
     void create() {
-        Users user1 = Users.builder().name("user1").email("test@21day.com").useYn(UseYn.Y).regUser(1L).modUser(1L).build();
-        usersRepository.save(user1);
+        User user1 = User.builder().name("user1").email("test@21day.com").useYn(UseYn.Y).regUser(1L).modUser(1L).build();
+        userRepository.save(user1);
 
-        List<Users> users = usersRepository.findAll();
+        List<User> users = userRepository.findAll();
         assertThat(users.size()).isEqualTo(1);
 
-        Users findUser = usersRepository.findByName("user1");
+        User findUser = userRepository.findByName("user1");
         assertThat(user1).isEqualTo(findUser);
     }
 

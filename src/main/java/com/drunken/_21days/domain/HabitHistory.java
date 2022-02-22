@@ -1,7 +1,7 @@
 package com.drunken._21days.domain;
 
-import lombok.Getter;
-import lombok.Setter;
+import com.drunken._21days.domain.enums.HabitStatus;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -9,6 +9,9 @@ import java.time.LocalDateTime;
 
 import static javax.persistence.FetchType.LAZY;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Entity
 @Getter @Setter
 public class HabitHistory extends BaseTimeEntity{
@@ -19,7 +22,7 @@ public class HabitHistory extends BaseTimeEntity{
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "user_id")
-    private Users users;
+    private User user;
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "habit_id")
@@ -28,5 +31,5 @@ public class HabitHistory extends BaseTimeEntity{
     @Enumerated(EnumType.STRING)
     private HabitStatus habitStatus;
 
-    private LocalDateTime historyDate;
+    private LocalDateTime historyDate; // yyyyMMdd String? 아니면 D+day 형태?
 }

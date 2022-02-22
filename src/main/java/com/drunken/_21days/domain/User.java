@@ -1,18 +1,20 @@
 package com.drunken._21days.domain;
 
+import com.drunken._21days.domain.enums.UseYn;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
 @Getter
 @Setter
-public class Users extends BaseTimeEntity {
+public class User extends BaseTimeEntity {
     @Id
     @GeneratedValue
     @Column(name = "user_id")
@@ -27,21 +29,23 @@ public class Users extends BaseTimeEntity {
     private Long regUser;
     private Long modUser;
 
-    @OneToMany(mappedBy = "users", fetch = FetchType.LAZY)
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<UserHabit> userHabits = new ArrayList<>();
 
-    @OneToMany(mappedBy = "users", fetch = FetchType.LAZY)
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<HabitHistory> habitHistories = new ArrayList<>();
 
     /* 연관관계 편의 메소드 */
 
     public void addUserHabit(UserHabit userHabit) {
-        userHabit.setUsers(userHabit.getUsers());
+        userHabit.setUser(userHabit.getUser());
         userHabits.add(userHabit);
     }
 
     public void addHabitHistory(HabitHistory habitHistory) {
-        habitHistory.setUsers(habitHistory.getUsers());
+        habitHistory.setUser(habitHistory.getUser());
         habitHistories.add(habitHistory);
     }
 }

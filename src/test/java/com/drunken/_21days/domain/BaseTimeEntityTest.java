@@ -1,11 +1,11 @@
 package com.drunken._21days.domain;
 
+import com.drunken._21days.domain.enums.UseYn;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 
@@ -27,7 +27,7 @@ class BaseTimeEntityTest {
     void regDateTest() {
         LocalDate today = LocalDate.now();
 
-        Users user1 = Users.builder().name("user1").email("test@21day.com").useYn(UseYn.Y).regUser(1L).modUser(1L).build();
+        User user1 = User.builder().name("user1").email("test@21day.com").useYn(UseYn.Y).regUser(1L).modUser(1L).build();
         em.persist(user1);
 
         assertThat(user1.getRegDate().format(DateTimeFormatter.ofPattern("yyyyMMdd")))
@@ -39,7 +39,7 @@ class BaseTimeEntityTest {
     void modDateTest() {
         LocalDateTime today = LocalDateTime.now();
 
-        Users user1 = Users.builder().name("user1").email("test@21day.com").useYn(UseYn.Y).regUser(1L).modUser(1L).build();
+        User user1 = User.builder().name("user1").email("test@21day.com").useYn(UseYn.Y).regUser(1L).modUser(1L).build();
         em.persist(user1);
 
         LocalDateTime modDate = user1.getModDate();

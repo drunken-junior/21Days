@@ -1,5 +1,6 @@
 package com.drunken._21days.domain;
 
+import com.drunken._21days.domain.enums.UseYn;
 import lombok.*;
 
 import javax.persistence.*;
@@ -15,7 +16,7 @@ public class UserHabit extends BaseTimeEntity{
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    private Users users;
+    private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "habit_id")

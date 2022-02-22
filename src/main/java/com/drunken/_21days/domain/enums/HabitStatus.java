@@ -1,4 +1,4 @@
-package com.drunken._21days.domain;
+package com.drunken._21days.domain.enums;
 
 
 public enum HabitStatus {
