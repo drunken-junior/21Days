@@ -34,13 +34,4 @@ logging:
       SQL: debug
       type: trace
 
----
 
-spring:
-  config:
-    activate:
-      on-profile: mysql
-      jdbc-url: jdbc:mysql://localhost:3306/21days?useUnicode=true&characterEncoding=utf8
-      username: yooyeon
-        password: yooyeon1234@
-        driver-class-name: com.mysql.cj.jdbc.Driver
