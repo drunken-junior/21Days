@@ -5,6 +5,7 @@ import com.drunken._21days.domain.enums.UseYn;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,7 @@ public class Habit extends BaseTimeEntity{
     @Column(name = "habit_id")
     private Long id;
 
+    //@NotNull
     private String content;
 
     @Enumerated(EnumType.STRING)
